@@ -2,8 +2,8 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h> // библиотека  жки дисплея
 
-#define ld_gr 9 // зеленый светодиод
-#define ld_red 11 // красный светодиод
+#define ld_red 9 // зеленый светодиод
+#define ld_gr 11 // красный светодиод
 #define relay 8 // реле
 
 # define amount 6 // количество символов в коде
@@ -73,8 +73,11 @@ void loop(){
         delay (5000);
         digitalWrite(ld_gr, LOW);
         digitalWrite(relay, LOW);
+        LCD.clear();
         LCD.setCursor(1, 0);     // ставим курсор на 1 символ первой строки
         LCD.print("Write ur code");     // печатаем сообщение на первой строке
+        LCD.setCursor(1, 1);
+        LCD.print("Ur code: ");
         t=0;
         x=0;
       }
@@ -84,8 +87,11 @@ void loop(){
         digitalWrite(ld_red, HIGH);
         delay(3000);
         digitalWrite(ld_red, LOW);
+        LCD.clear();
         LCD.setCursor(1, 0);     // ставим курсор на 1 символ первой строки
-        LCD.print("Write ur code");     // печатаем сообщение на первой строке
+        LCD.print("Write ur code");   // печатаем сообщение на первой строке
+        LCD.setCursor(1, 1);
+        LCD.print("Ur code: ");
         t=0;
         x=0;
       }
